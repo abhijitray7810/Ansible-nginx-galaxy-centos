@@ -1,0 +1,6 @@
+---
+- name: Deploy Nginx with custom homepage (centOS)
+  hosts: webservers
+  become: yes
+  roles:
+    - ansible-nginx-galaxy-centos

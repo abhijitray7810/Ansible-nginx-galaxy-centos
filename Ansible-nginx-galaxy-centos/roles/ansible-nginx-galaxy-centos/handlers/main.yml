@@ -1,0 +1,8 @@
+---
+# handlers file for ansible-nginx-galaxy-centos
+
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted

@@ -1,0 +1,26 @@
+---
+# tasks file for ansible-nginx-galaxy-centos
+
+- name: Include Galaxy Nginx role
+  include_role:
+    name: geerlingguy.nginx
+
+- name: Ensure web root exists
+  file: 
+    path: /var/www/ansible-galaxy-demo
+    state: directory
+    owner: abhi
+    group: abhi
+    mode: "0755"
+
+
+
+
+- name: Deploy custom index.html
+  template:
+    src: index.html.j2
+    dest: /var/www/ansible-galaxy-demo/index.html
+    owner: abhi
+    group: abhi
+    mode: "0644"
+  notify: restart nginx     
